@@ -22,24 +22,24 @@
   justify-content: center;
 }
 
-.inputOfWords {
+.searchInput {
   height: 40px;
   width: 272px;
   border-radius: 4px;
   border: 2px grey solid;
 }
 
-.inputOfWords:hover {
+.searchInput:hover {
   border: 2px black solid;
 }
 
-.inputOfWords:focus {
+.searchInput:focus {
   outline: none;
   border: 2px blue solid;
   border-color: blue;
 }
 
-.buttonForInput {
+.searchButton {
   height: 45px;
   width: 91px;
   border-radius: 8px;
@@ -50,16 +50,18 @@
   letter-spacing: 1.2px;
 }
 
-.buttonForInput:hover {
+.searchButton:hover {
   background-color: #6C8CFF;
   border: 1px #6C8CFF solid;
 }
+
 .blockForAllElements {
   width: calc((100% / 5) - 20px);
   border: 1px black solid;
   margin-top: 25px;
 }
-.userList {
+
+.photoGallery {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

@@ -1,16 +1,16 @@
-const inputOfWords = document.querySelector('.inputOfWords');     
-const buttonForInput = document.querySelector('.buttonForInput'); 
+const searchInput = document.querySelector('.searchInput');     
+const searchButton = document.querySelector('.searchButton'); 
 
 
-let wordOfUser = '';
+let query = '';
 
 
-buttonForInput.addEventListener('click', event => {   
+searchButton.addEventListener('click', event => {   
   loaderF();
   event.preventDefault();
-  userList.innerHTML = '';
+  photoGallery.innerHTML = '';
   setTimeout(() => {
-    wordOfUser = inputOfWords.value.trim();
+    query = searchInput.value.trim();
     checkInputValidity();
   }, 2000);
 });
@@ -18,7 +18,7 @@ buttonForInput.addEventListener('click', event => {
 function checkInputValidity() {                   
   fetchImages()
     .then(images => {
-      if (wordOfUser === '') {
+      if (query === '') {
         iziToast.show({
           color: 'red',
           message: `Sorry, the input field must be filled in to start the photo search.`,
@@ -40,7 +40,7 @@ function checkInputValidity() {
 
 function fetchImages() {                         
   return fetch(
-    `https://pixabay.com/api/?key=42977219-0f6c9f9217f976d8651793c3a&q=${wordOfUser}&image_type=photo&per_page=15&orientation=horizontal&safesearch=true`
+    `https://pixabay.com/api/?key=42977219-0f6c9f9217f976d8651793c3a&q=${query}&image_type=photo&per_page=15&orientation=horizontal&safesearch=true`
   )
     .then(response => {
       if (!response.ok) {
@@ -51,4 +51,4 @@ function fetchImages() {
     .then(data => data.hits);
 }
 
-import { userList, renderImg, loaderF, spanElementRem,} from './render-functions.js';
+import { photoGallery, renderImg, loaderF, spanElementRem,} from './render-functions.js';

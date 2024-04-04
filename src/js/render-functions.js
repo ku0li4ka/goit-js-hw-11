@@ -1,22 +1,15 @@
-import iziToast from 'izitoast';                                
-import 'izitoast/dist/css/iziToast.min.css';
-
 import SimpleLightbox from 'simplelightbox';                    
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-export const userList = document.querySelector('.userList');           
-export const areaForLoader = document.querySelector('.areaForLoader'); 
+export const photoGallery = document.querySelector('.photoGallery');           
+export const loaderContainer = document.querySelector('.loaderContainer'); 
 
 export const lightbox = new SimpleLightbox('.gallery a', {   
   captionDelay: 250,
   captionsData: 'alt',
 });
 
-export let imagesLength = '';
-
 export function renderImg(images) {    
-  imagesLength = images.length;
-
   const markupImg = images                          
     .map(image => {
       console.log(image);
@@ -47,14 +40,14 @@ export function renderImg(images) {
         </div>`;
     })
     .join('');
-  userList.insertAdjacentHTML('beforeend', markupImg);
+  photoGallery.insertAdjacentHTML('beforeend', markupImg);
 
   lightbox.refresh();
 }
 
 export function loaderF() {                              
   const spanElement = document.createElement('span');
-  areaForLoader.appendChild(spanElement);
+  loaderContainer.appendChild(spanElement);
   spanElement.classList.add('loader');
 }
 
