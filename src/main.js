@@ -1,10 +1,16 @@
 import iziToast from 'izitoast';
+import "izitoast/dist/css/iziToast.min.css";
+
+
 import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
+
 import { fetchImages } from './js/pixabay-api.js';
-import { renderImg, loaderF, spanElementRem } from './js/render-functions.js';
+import { renderImg, toggleLoader, spanElementRem } from './js/render-functions.js';
 
 const searchInput = document.querySelector('.searchInput');    
-const searchButton = document.querySelector('.searchButton'); 
+const searchButton = document.querySelector('.searchButton');
+const searchForm = document.querySelector('.formForInput') 
 const photoGallery = document.querySelector('.photoGallery');
 const loaderContainer = document.querySelector('.loaderContainer');
 
@@ -13,10 +19,10 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
 });
 
-searchButton.addEventListener('click', event => {   
+searchForm.addEventListener('submit', event => {   
   event.preventDefault();
   photoGallery.innerHTML = '';
-  loaderF(loaderContainer);
+  toggleLoader(loaderContainer);
   const query = searchInput.value.trim();
   if (!query) {
     iziToast.show({

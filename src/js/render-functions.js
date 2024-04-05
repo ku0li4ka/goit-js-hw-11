@@ -1,4 +1,6 @@
 import iziToast from 'izitoast';
+import "izitoast/dist/css/iziToast.min.css";
+
 
 export function renderImg(images, photoGallery, lightbox) {    
   const markupImg = images                          
@@ -35,13 +37,13 @@ export function renderImg(images, photoGallery, lightbox) {
   lightbox.refresh();
 }
 
-export function loaderF(loaderContainer) {                              
+export function toggleLoader(loaderContainer) {                              
   const spanElement = document.createElement('span');
   loaderContainer.appendChild(spanElement);
   spanElement.classList.add('loader');
 }
 
 export function spanElementRem() {                       
-  const loaderF = document.querySelector('.loader');
-  loaderF.remove();
+  const toggleLoader = document.querySelector('.loader');
+  toggleLoader.remove();
 }
