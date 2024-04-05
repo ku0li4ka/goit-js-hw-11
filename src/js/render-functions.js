@@ -1,18 +1,8 @@
-import SimpleLightbox from 'simplelightbox';                    
-import 'simplelightbox/dist/simple-lightbox.min.css';
+import iziToast from 'izitoast';
 
-export const photoGallery = document.querySelector('.photoGallery');           
-export const loaderContainer = document.querySelector('.loaderContainer'); 
-
-export const lightbox = new SimpleLightbox('.gallery a', {   
-  captionDelay: 250,
-  captionsData: 'alt',
-});
-
-export function renderImg(images) {    
+export function renderImg(images, photoGallery, lightbox) {    
   const markupImg = images                          
     .map(image => {
-      console.log(image);
       return `<div class="blockForAllElements">
           <li>
           <a href=${image.largeImageURL} download="false">
@@ -45,7 +35,7 @@ export function renderImg(images) {
   lightbox.refresh();
 }
 
-export function loaderF() {                              
+export function loaderF(loaderContainer) {                              
   const spanElement = document.createElement('span');
   loaderContainer.appendChild(spanElement);
   spanElement.classList.add('loader');
