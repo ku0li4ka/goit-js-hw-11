@@ -1,3 +1,5 @@
+// pixabay-api.js 
+
 export function fetchImages(query) {                         
   return fetch(
     `https://pixabay.com/api/?key=42977219-0f6c9f9217f976d8651793c3a&q=${query}&image_type=photo&per_page=15&orientation=horizontal&safesearch=true`
